@@ -24,7 +24,7 @@ export default function SelectWorkoutScreen() {
 
   const handleSelectTemplate = (template: WorkoutTemplate) => {
     router.push({
-      pathname: '/gym/session',
+      pathname: '/gym/plan',
       params: { templateId: template.id, templateName: template.name },
     });
   };

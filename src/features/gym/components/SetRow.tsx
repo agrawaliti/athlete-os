@@ -51,25 +51,27 @@ export const SetRow = memo(function SetRow({
   if (isCompleted) {
     return (
       <View style={[styles.row, styles.completedRow]}>
-        <Text variant="caption" color="textSecondary" style={styles.setLabel}>
-          Set {setNumber}
+        <View style={styles.setNumBadge}>
+          <Text variant="caption" style={styles.setNumText}>{setNumber}</Text>
+        </View>
+        <Text variant="body" style={styles.completedWeight}>
+          {completedWeight} kg
         </Text>
-        <Text variant="bodyBold" style={styles.completedText}>
-          {completedWeight}kg
-        </Text>
-        <Text variant="bodyBold" style={styles.completedText}>
+        <Text variant="body" style={styles.completedReps}>
           × {completedReps}
         </Text>
-        <Text style={styles.checkmark}>✓</Text>
+        <View style={styles.checkBadge}>
+          <Text style={styles.checkmark}>✓</Text>
+        </View>
       </View>
     );
   }
 
   return (
     <View style={[styles.row, styles.activeRow]}>
-      <Text variant="caption" color="textSecondary" style={styles.setLabel}>
-        Set {setNumber}
-      </Text>
+      <View style={[styles.setNumBadge, styles.setNumBadgeActive]}>
+        <Text variant="caption" style={styles.setNumTextActive}>{setNumber}</Text>
+      </View>
       <View style={styles.inputGroup}>
         <NumericInput
           value={weight}
@@ -87,18 +89,18 @@ export const SetRow = memo(function SetRow({
           placeholder={suggestedReps}
           size="reps"
         />
+        <Pressable
+          onPress={handleLog}
+          style={({ pressed }) => [
+            styles.logButton,
+            pressed && styles.logButtonPressed,
+          ]}
+        >
+          <Text variant="bodyBold" color="textPrimary" style={{ fontSize: 13 }}>
+            LOG
+          </Text>
+        </Pressable>
       </View>
-      <Pressable
-        onPress={handleLog}
-        style={({ pressed }) => [
-          styles.logButton,
-          pressed && styles.logButtonPressed,
-        ]}
-      >
-        <Text variant="bodyBold" color="textPrimary">
-          LOG
-        </Text>
-      </Pressable>
     </View>
   );
 });
@@ -108,43 +110,76 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: spacing.sm,
-    paddingHorizontal: spacing.md,
+    paddingHorizontal: spacing.sm,
     borderRadius: radius.sm,
     marginBottom: spacing.xs,
   },
   activeRow: {
     backgroundColor: colors.surfaceElevated,
+    borderWidth: 1,
+    borderColor: colors.border,
   },
   completedRow: {
-    backgroundColor: 'rgba(48, 209, 88, 0.08)',
+    backgroundColor: colors.success + '0A',
   },
-  setLabel: {
-    width: 44,
+  setNumBadge: {
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    backgroundColor: colors.success + '20',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: spacing.sm,
+  },
+  setNumBadgeActive: {
+    backgroundColor: colors.primary + '20',
+  },
+  setNumText: {
+    color: colors.success,
+    fontSize: 11,
+    fontWeight: '700',
+  },
+  setNumTextActive: {
+    color: colors.primary,
+    fontSize: 11,
+    fontWeight: '700',
   },
   inputGroup: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    gap: spacing.sm,
+    gap: spacing.xs,
   },
   times: {
-    marginHorizontal: spacing.xs,
+    marginHorizontal: 2,
   },
-  completedText: {
-    marginRight: spacing.md,
+  completedWeight: {
     color: colors.textPrimary,
+    marginRight: spacing.sm,
+  },
+  completedReps: {
+    color: colors.textSecondary,
+    flex: 1,
+  },
+  checkBadge: {
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    backgroundColor: colors.success + '20',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   checkmark: {
-    fontSize: 18,
+    fontSize: 13,
     color: colors.success,
-    marginLeft: 'auto',
+    fontWeight: '700',
   },
   logButton: {
     backgroundColor: colors.primary,
-    paddingHorizontal: spacing.lg,
+    paddingHorizontal: spacing.md,
     paddingVertical: spacing.sm,
     borderRadius: radius.sm,
-    marginLeft: spacing.sm,
+    marginLeft: spacing.xs,
   },
   logButtonPressed: {
     opacity: 0.8,

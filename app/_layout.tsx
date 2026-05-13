@@ -45,16 +45,15 @@ export default function RootLayout() {
         screenOptions={{
           headerShown: false,
           contentStyle: { backgroundColor: colors.background },
-          animation: 'slide_from_right',
         }}
       >
         <Stack.Screen name="(tabs)" />
         <Stack.Screen
           name="gym"
           options={{
-            presentation: 'fullScreenModal',
-            gestureEnabled: false, // prevent accidental swipe during workout
-            animation: 'slide_from_bottom',
+            presentation: 'card',
+            animation: 'slide_from_right',
+            gestureEnabled: true,
           }}
         />
       </Stack>

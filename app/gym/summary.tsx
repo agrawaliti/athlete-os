@@ -41,7 +41,7 @@ export default function SummaryScreen() {
     if (rating && sessionId) {
       workoutRepo.updateSession(sessionId, { rating });
     }
-    router.dismissAll();
+    router.replace('/(tabs)/home');
   };
 
   return (

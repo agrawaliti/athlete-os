@@ -46,7 +46,7 @@ export const Button = memo(function Button({
       style={({ pressed }) => [
         styles.base,
         styles[variant],
-        { height: HEIGHT[size], minHeight: 48 },
+        { height: HEIGHT[size], minHeight: size === 'sm' ? HEIGHT[size] : 48 },
         fullWidth && styles.fullWidth,
         pressed && styles.pressed,
         isDisabled && styles.disabled,
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: radius.md,
-    paddingHorizontal: spacing.xl,
+    paddingHorizontal: spacing.lg,
   },
   primary: {
     backgroundColor: colors.primary,

@@ -17,44 +17,26 @@ interface SeedExercise {
 }
 
 const EXERCISES: SeedExercise[] = [
-  // ━━━ Push ━━━
-  { name: 'Bench Press', muscleGroup: 'chest', movementPattern: 'horizontal_push', equipment: 'barbell' },
-  { name: 'Incline Dumbbell Press', muscleGroup: 'chest', movementPattern: 'horizontal_push', equipment: 'dumbbell' },
-  { name: 'Overhead Press', muscleGroup: 'shoulders', movementPattern: 'vertical_push', equipment: 'barbell' },
-  { name: 'Dumbbell Lateral Raise', muscleGroup: 'shoulders', movementPattern: 'isolation', equipment: 'dumbbell' },
-  { name: 'Tricep Pushdown', muscleGroup: 'triceps', movementPattern: 'isolation', equipment: 'cable' },
-  { name: 'Overhead Tricep Extension', muscleGroup: 'triceps', movementPattern: 'isolation', equipment: 'cable' },
-  { name: 'Cable Fly', muscleGroup: 'chest', movementPattern: 'isolation', equipment: 'cable' },
-  { name: 'Dips', muscleGroup: 'chest', movementPattern: 'compound', equipment: 'bodyweight' },
-
-  // ━━━ Pull ━━━
-  { name: 'Barbell Row', muscleGroup: 'back', movementPattern: 'horizontal_pull', equipment: 'barbell' },
-  { name: 'Pull-Up', muscleGroup: 'back', movementPattern: 'vertical_pull', equipment: 'bodyweight' },
-  { name: 'Lat Pulldown', muscleGroup: 'back', movementPattern: 'vertical_pull', equipment: 'cable' },
-  { name: 'Seated Cable Row', muscleGroup: 'back', movementPattern: 'horizontal_pull', equipment: 'cable' },
-  { name: 'Face Pull', muscleGroup: 'shoulders', movementPattern: 'horizontal_pull', equipment: 'cable' },
-  { name: 'Barbell Curl', muscleGroup: 'biceps', movementPattern: 'isolation', equipment: 'barbell' },
-  { name: 'Hammer Curl', muscleGroup: 'biceps', movementPattern: 'isolation', equipment: 'dumbbell' },
-  { name: 'Dumbbell Row', muscleGroup: 'back', movementPattern: 'horizontal_pull', equipment: 'dumbbell' },
-
-  // ━━━ Legs ━━━
-  { name: 'Barbell Squat', muscleGroup: 'quads', movementPattern: 'squat', equipment: 'barbell' },
+  // ━━━ Day A — Pull + Posterior Chain + Grip ━━━
   { name: 'Romanian Deadlift', muscleGroup: 'hamstrings', movementPattern: 'hinge', equipment: 'barbell' },
-  { name: 'Leg Press', muscleGroup: 'quads', movementPattern: 'squat', equipment: 'machine' },
-  { name: 'Leg Curl', muscleGroup: 'hamstrings', movementPattern: 'isolation', equipment: 'machine' },
-  { name: 'Leg Extension', muscleGroup: 'quads', movementPattern: 'isolation', equipment: 'machine' },
-  { name: 'Calf Raise', muscleGroup: 'calves', movementPattern: 'isolation', equipment: 'machine' },
-  { name: 'Bulgarian Split Squat', muscleGroup: 'quads', movementPattern: 'lunge', equipment: 'dumbbell' },
-  { name: 'Hip Thrust', muscleGroup: 'glutes', movementPattern: 'hinge', equipment: 'barbell' },
+  { name: 'Pull-Up', muscleGroup: 'back', movementPattern: 'vertical_pull', equipment: 'bodyweight' },
+  { name: 'Bulgarian Split Squat', muscleGroup: 'glutes', movementPattern: 'lunge', equipment: 'dumbbell' },
+  { name: 'Chest Supported Row', muscleGroup: 'back', movementPattern: 'horizontal_pull', equipment: 'dumbbell' },
+  { name: 'Kettlebell Swing', muscleGroup: 'glutes', movementPattern: 'hinge', equipment: 'kettlebell' },
+  { name: 'Farmer Carry', muscleGroup: 'full_body', movementPattern: 'carry', equipment: 'dumbbell' },
+  { name: 'Battle Rope', muscleGroup: 'full_body', movementPattern: 'compound', equipment: 'other' },
+  { name: 'Side Plank', muscleGroup: 'core', movementPattern: 'isolation', equipment: 'bodyweight' },
+  { name: 'Bird Dog', muscleGroup: 'core', movementPattern: 'isolation', equipment: 'bodyweight' },
+  { name: 'Neck Flexion/Extension', muscleGroup: 'core', movementPattern: 'isolation', equipment: 'bodyweight' },
 
-  // ━━━ Compound / Full Body ━━━
-  { name: 'Deadlift', muscleGroup: 'back', movementPattern: 'hinge', equipment: 'barbell' },
-  { name: 'Farmers Walk', muscleGroup: 'full_body', movementPattern: 'carry', equipment: 'dumbbell' },
-
-  // ━━━ Core ━━━
-  { name: 'Hanging Leg Raise', muscleGroup: 'core', movementPattern: 'isolation', equipment: 'bodyweight' },
-  { name: 'Cable Crunch', muscleGroup: 'core', movementPattern: 'isolation', equipment: 'cable' },
-  { name: 'Plank', muscleGroup: 'core', movementPattern: 'isolation', equipment: 'bodyweight' },
+  // ━━━ Day B — Push + Core + Top Pressure ━━━
+  { name: 'Front Squat', muscleGroup: 'quads', movementPattern: 'squat', equipment: 'barbell' },
+  { name: 'Dumbbell Bench Press', muscleGroup: 'chest', movementPattern: 'horizontal_push', equipment: 'dumbbell' },
+  { name: 'Copenhagen Plank', muscleGroup: 'core', movementPattern: 'isolation', equipment: 'bodyweight' },
+  { name: 'Sled Push', muscleGroup: 'quads', movementPattern: 'compound', equipment: 'machine' },
+  { name: 'Medicine Ball Slam', muscleGroup: 'full_body', movementPattern: 'compound', equipment: 'other' },
+  { name: 'Pushups', muscleGroup: 'chest', movementPattern: 'horizontal_push', equipment: 'bodyweight' },
+  { name: 'Pallof Press', muscleGroup: 'core', movementPattern: 'isolation', equipment: 'cable' },
 ];
 
 interface TemplateSpec {
@@ -65,51 +47,67 @@ interface TemplateSpec {
 
 const TEMPLATES: TemplateSpec[] = [
   {
-    name: 'Pull Day',
+    name: 'Day A — Pull + Posterior Chain + Grip',
     category: 'pull',
     exercises: [
-      { name: 'Barbell Row', sets: 4, repsMin: 6, repsMax: 8, rest: 120 },
-      { name: 'Lat Pulldown', sets: 3, repsMin: 8, repsMax: 12, rest: 90 },
-      { name: 'Seated Cable Row', sets: 3, repsMin: 8, repsMax: 12, rest: 90 },
-      { name: 'Face Pull', sets: 3, repsMin: 12, repsMax: 15, rest: 60, superset: 'A' },
-      { name: 'Hammer Curl', sets: 3, repsMin: 10, repsMax: 12, rest: 60, superset: 'A' },
-      { name: 'Barbell Curl', sets: 3, repsMin: 8, repsMax: 12, rest: 60 },
+      // Superset A
+      { name: 'Romanian Deadlift', sets: 4, repsMin: 6, repsMax: 6, rest: 45, superset: 'A' },
+      { name: 'Pull-Up', sets: 4, repsMin: 5, repsMax: 8, rest: 75, superset: 'A' },
+      // Superset B
+      { name: 'Bulgarian Split Squat', sets: 3, repsMin: 8, repsMax: 8, rest: 30, superset: 'B' },
+      { name: 'Chest Supported Row', sets: 3, repsMin: 10, repsMax: 10, rest: 60, superset: 'B' },
+      // Conditioning Circuit
+      { name: 'Kettlebell Swing', sets: 3, repsMin: 15, repsMax: 15, rest: 0, superset: 'C' },
+      { name: 'Farmer Carry', sets: 3, repsMin: 30, repsMax: 30, rest: 0, superset: 'C' },
+      { name: 'Battle Rope', sets: 3, repsMin: 20, repsMax: 20, rest: 45, superset: 'C' },
+      // Core Finish
+      { name: 'Side Plank', sets: 2, repsMin: 30, repsMax: 30, rest: 15, superset: 'D' },
+      { name: 'Bird Dog', sets: 2, repsMin: 8, repsMax: 8, rest: 15, superset: 'D' },
+      { name: 'Neck Flexion/Extension', sets: 2, repsMin: 15, repsMax: 15, rest: 15, superset: 'D' },
     ],
   },
   {
-    name: 'Push Day',
+    name: 'Day B — Push + Core + Top Pressure',
     category: 'push',
     exercises: [
-      { name: 'Bench Press', sets: 4, repsMin: 6, repsMax: 8, rest: 120 },
-      { name: 'Incline Dumbbell Press', sets: 3, repsMin: 8, repsMax: 12, rest: 90 },
-      { name: 'Overhead Press', sets: 3, repsMin: 6, repsMax: 10, rest: 90 },
-      { name: 'Cable Fly', sets: 3, repsMin: 12, repsMax: 15, rest: 60, superset: 'A' },
-      { name: 'Dumbbell Lateral Raise', sets: 3, repsMin: 12, repsMax: 15, rest: 60, superset: 'A' },
-      { name: 'Tricep Pushdown', sets: 3, repsMin: 10, repsMax: 12, rest: 60, superset: 'B' },
-      { name: 'Overhead Tricep Extension', sets: 3, repsMin: 10, repsMax: 12, rest: 60, superset: 'B' },
-    ],
-  },
-  {
-    name: 'Legs',
-    category: 'legs',
-    exercises: [
-      { name: 'Barbell Squat', sets: 4, repsMin: 6, repsMax: 8, rest: 150 },
-      { name: 'Romanian Deadlift', sets: 3, repsMin: 8, repsMax: 10, rest: 120 },
-      { name: 'Leg Press', sets: 3, repsMin: 10, repsMax: 12, rest: 90 },
-      { name: 'Leg Curl', sets: 3, repsMin: 10, repsMax: 12, rest: 60, superset: 'A' },
-      { name: 'Leg Extension', sets: 3, repsMin: 10, repsMax: 12, rest: 60, superset: 'A' },
-      { name: 'Calf Raise', sets: 4, repsMin: 12, repsMax: 15, rest: 60 },
+      // Superset A
+      { name: 'Front Squat', sets: 4, repsMin: 5, repsMax: 6, rest: 45, superset: 'A' },
+      { name: 'Dumbbell Bench Press', sets: 4, repsMin: 6, repsMax: 8, rest: 75, superset: 'A' },
+      // Superset B
+      { name: 'Chest Supported Row', sets: 3, repsMin: 10, repsMax: 10, rest: 20, superset: 'B' },
+      { name: 'Copenhagen Plank', sets: 3, repsMin: 20, repsMax: 20, rest: 45, superset: 'B' },
+      // Athletic Circuit
+      { name: 'Sled Push', sets: 3, repsMin: 40, repsMax: 40, rest: 0, superset: 'C' },
+      { name: 'Medicine Ball Slam', sets: 3, repsMin: 10, repsMax: 10, rest: 0, superset: 'C' },
+      { name: 'Pushups', sets: 3, repsMin: 10, repsMax: 15, rest: 45, superset: 'C' },
+      // Core Finish
+      { name: 'Pallof Press', sets: 3, repsMin: 12, repsMax: 12, rest: 30 },
     ],
   },
 ];
 
 /**
  * Seeds the database on first launch. Idempotent — checks if exercises exist first.
+ * Set FORCE_RESEED to true after changing templates, then back to false.
  */
 export function seedDatabase(): void {
-  if (exerciseRepo.count() > 0) return; // already seeded
+  const FORCE_RESEED = true;
 
   const db = getDatabase();
+
+  if (FORCE_RESEED) {
+    db.runSync('PRAGMA foreign_keys = OFF');
+    db.runSync('DELETE FROM set_logs');
+    db.runSync('DELETE FROM personal_records');
+    db.runSync('DELETE FROM workout_sessions');
+    db.runSync('DELETE FROM template_exercises');
+    db.runSync('DELETE FROM workout_templates');
+    db.runSync('DELETE FROM exercises');
+    db.runSync('PRAGMA foreign_keys = ON');
+  }
+
+  if (exerciseRepo.count() > 0) return; // already seeded
+
   const now = Date.now();
 
   // Build exercise name → ID map for template references
